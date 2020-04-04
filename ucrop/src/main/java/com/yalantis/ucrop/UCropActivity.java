@@ -368,7 +368,7 @@ public class UCropActivity extends AppCompatActivity {
         findViewById(R.id.rotate_reset).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                resetRotation();
+                mGestureCropImageView.reset();
             }
         });
 

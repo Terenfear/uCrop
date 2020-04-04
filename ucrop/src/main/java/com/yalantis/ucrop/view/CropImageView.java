@@ -323,6 +323,18 @@ public class CropImageView extends TransformImageView {
         }
     }
 
+    public void reset() {
+        final Drawable drawable = getDrawable();
+        if (drawable == null) {
+            return;
+        }
+
+        float drawableWidth = drawable.getIntrinsicWidth();
+        float drawableHeight = drawable.getIntrinsicHeight();
+
+        setupInitialImagePosition(drawableWidth, drawableHeight);
+    }
+
     /**
      * First, un-rotate image and crop rectangles (make image rectangle axis-aligned).
      * Second, calculate deltas between those rectangles sides.
