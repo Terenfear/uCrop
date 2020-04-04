@@ -141,7 +141,7 @@ public class ResultActivity extends BaseActivity {
         String downloadsDirectoryPath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath();
         String filename = String.format("%d_%s", Calendar.getInstance().getTimeInMillis(), croppedFileUri.getLastPathSegment());
 
-        File saveFile = new File(downloadsDirectoryPath, filename);
+        File saveFile = new File(getFilesDir(), filename);
 
         FileInputStream inStream = new FileInputStream(new File(croppedFileUri.getPath()));
         FileOutputStream outStream = new FileOutputStream(saveFile);

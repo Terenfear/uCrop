@@ -3,33 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/ucrop_photobox"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/ucrop_color_toolbar"
-        android:minHeight="?attr/actionBarSize">
-
-        <TextView
-            android:id="@+id/toolbar_title"
-            style="@style/TextAppearance.Widget.AppCompat.Toolbar.Title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:text="@string/ucrop_label_edit_photo"
-            android:textColor="@color/ucrop_color_toolbar_widget" />
-
-    </androidx.appcompat.widget.Toolbar>
+    android:layout_height="match_parent"
+    android:background="#ff00ff">
 
     <FrameLayout
         android:id="@+id/ucrop_frame"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/controls_wrapper"
-        android:layout_below="@+id/toolbar"
-        android:layout_marginBottom="-12dp">
+        android:layout_alignParentTop="true">
 
         <ImageView
             android:id="@+id/image_view_logo"
@@ -49,10 +30,60 @@
     </FrameLayout>
 
     <FrameLayout
-        android:id="@+id/controls_wrapper"
+        android:id="@+id/simple_tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:visibility="gone" />
+        android:padding="12dp"
+        android:layout_alignParentBottom="true">
+
+        <ImageButton
+            android:id="@+id/rotate_left"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center_vertical|left"
+            android:background="?attr/selectableItemBackground"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_rotate_left_black_24dp"
+            android:tint="@android:color/white" />
+
+        <ImageButton
+            android:id="@+id/rotate_reset"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center"
+            android:background="?attr/selectableItemBackground"
+            android:scaleType="centerInside"
+            android:src="@drawable/ucrop_ic_reset"
+            android:tint="@android:color/white" />
+
+        <ImageButton
+            android:id="@+id/rotate_right"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center_vertical|right"
+            android:background="?attr/selectableItemBackground"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_rotate_right_black_24dp"
+            android:tint="@android:color/white" />
+    </FrameLayout>
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:fitsSystemWindows="true"
+        android:minHeight="?attr/actionBarSize">
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            style="@style/TextAppearance.Widget.AppCompat.Toolbar.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:text="@string/ucrop_label_edit_photo"
+            android:textColor="@color/ucrop_color_toolbar_widget" />
+
+    </androidx.appcompat.widget.Toolbar>
 
 </RelativeLayout>

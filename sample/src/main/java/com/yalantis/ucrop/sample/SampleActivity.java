@@ -3,6 +3,7 @@ package com.yalantis.ucrop.sample;
 import android.annotation.TargetApi;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Animatable;
 import android.graphics.drawable.Drawable;
@@ -310,6 +311,11 @@ public class SampleActivity extends BaseActivity implements UCropFragmentCallbac
 
         options.setHideBottomControls(mCheckBoxHideBottomControls.isChecked());
         options.setFreeStyleCropEnabled(mCheckBoxFreeStyleCrop.isChecked());
+        options.setCircleDimmedLayer(true);
+        options.setShowCropGrid(false);
+        options.setShowCropFrame(false);
+        options.setToolbarWidgetColor(Color.WHITE);
+        options.setAllowedGestures(UCropActivity.SCALE, UCropActivity.ROTATE, UCropActivity.SCALE);
 
         /*
         If you want to configure how gestures work for all UCropActivity tabs
@@ -419,8 +425,7 @@ public class SampleActivity extends BaseActivity implements UCropFragmentCallbac
 
     public void setupViews(Bundle args) {
         settingsView.setVisibility(View.GONE);
-        mStatusBarColor = args.getInt(UCrop.Options.EXTRA_STATUS_BAR_COLOR, ContextCompat.getColor(this, R.color.ucrop_color_statusbar));
-        mToolbarColor = args.getInt(UCrop.Options.EXTRA_TOOL_BAR_COLOR, ContextCompat.getColor(this, R.color.ucrop_color_toolbar));
+        mToolbarColor = args.getInt(UCrop.Options.EXTRA_TOOL_BAR_COLOR, ContextCompat.getColor(this, android.R.color.transparent));
         mToolbarCancelDrawable = args.getInt(UCrop.Options.EXTRA_UCROP_WIDGET_CANCEL_DRAWABLE, R.drawable.ucrop_ic_cross);
         mToolbarCropDrawable = args.getInt(UCrop.Options.EXTRA_UCROP_WIDGET_CROP_DRAWABLE, R.drawable.ucrop_ic_done);
         mToolbarWidgetColor = args.getInt(UCrop.Options.EXTRA_UCROP_WIDGET_COLOR_TOOLBAR, ContextCompat.getColor(this, R.color.ucrop_color_toolbar_widget));
